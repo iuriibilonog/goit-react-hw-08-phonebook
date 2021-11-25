@@ -19,9 +19,24 @@
 }
 
 .navItem_right {
-  margin-right: 30px;
+  margin-right: 15px;
 }
 
 .navItem_right:not(:last-child) {
   margin-left: auto;
+}
+
+.navItem_avatar {
+  margin-right: 15px;
+}
+
+.navItem_btn {
+  margin-right: 15px;
+  align-items: center;
+  background-color: red;
+}
+
+.btnName {
+  margin-right: 10px;
+  text-transform: none;
 }

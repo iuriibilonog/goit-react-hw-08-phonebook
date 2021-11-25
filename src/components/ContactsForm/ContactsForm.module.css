@@ -31,8 +31,8 @@
 .addContactBtn {
   margin: 0 auto;
   margin-bottom: 20px;
-  max-width: 100px;
-  color: #000000;
+  max-width: 200px;
+  color: white;
   cursor: pointer;
   display: block;
   position: relative;
@@ -41,7 +41,7 @@
   transition: all 0.4s cubic-bezier(0.42, 0, 0.58, 1);
 }
 .addContactBtn:hover {
-  color: #000;
+  color: white;
   background-color: transparent;
   text-shadow: nthree;
 }

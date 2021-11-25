@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { TextField } from "@mui/material";
+import { TextField, Button } from "@mui/material";
 import { useDispatch, useSelector } from 'react-redux';
 import { addContact}  from '../../redux/contacts/contacts-operation';
 import PropTypes from 'prop-types';
@@ -65,7 +65,8 @@ function ContactsForm() {
 
         
 
-        <button className={s.addContactBtn} type='submit'>Add Contact</button>
+        {/* <button className={s.addContactBtn} type='submit'>Add Contact</button> */}
+        <Button variant="contained" className={s.addContactBtn} type='submit'>Add Contact</Button>
       </form>
     )
   }

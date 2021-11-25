@@ -1,4 +1,4 @@
-import { TextField } from "@mui/material";
+import { TextField, Button } from "@mui/material";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { login } from "../../redux/auth/auth-operations";
@@ -30,6 +30,7 @@ const LoginPage = () => {
     setEmail("");
     setPassword("");
   }
+  
 
   return (
     <>
@@ -37,8 +38,9 @@ const LoginPage = () => {
       <form className={s.form} onSubmit={handleOnSubmit}>
         <TextField className={s.inputField} onChange={handleOnCange} name="email" value={email} id="outlined-basic" label="Email" variant="filled" required/>
       <TextField className={s.inputField} onChange={handleOnCange} name="password" value={password} id="outlined-basic" label="Password" variant="filled" required/>
-      <button className={s.addContactBtn} type="submit">Submit</button>
+      <Button variant="contained" className={s.addContactBtn} type='submit'>Submit</Button>
       </form>
+      
     </>
   )
 }

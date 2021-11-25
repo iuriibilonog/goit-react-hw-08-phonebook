@@ -1,4 +1,4 @@
-import { TextField } from "@mui/material";
+import { TextField, Button} from "@mui/material";
 import { useState } from "react";
 import s from "./AuthPage.module.css";
 import { register } from "../../redux/auth/auth-operations";
@@ -74,9 +74,11 @@ const AuthPage = () => {
           className={s.inputField}
           required
         />
-        <button className={s.addContactBtn} type="submit">
-          Submit
-        </button>
+        
+        <Button variant="contained" className={s.addContactBtn} type='submit'>Submit</Button>
+        
+          
+        
       </form>
     </>
   );

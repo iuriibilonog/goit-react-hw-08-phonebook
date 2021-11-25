@@ -9,16 +9,13 @@ import {
   deleteContactRequest,
   deleteContactSuccsess,
   deleteContactError,
+  changeContactRequest,
+  changeContactSuccsess,
+  changeContactError,
 } from "./contacts-actions";
 
-import { token } from "../../utils/servises/authApi";
-
-// axios.defaults.baseURL = "https://connections-api.herokuapp.com";
-
 export const getContacts = () => (dispatch) => {
-  // dispatch(getContactRequest());
   axios.get("/contacts").then(({ data }) => dispatch(getContactSuccsess(data)));
-  // .catch((error) => dispatch(getContactError(error)));
 };
 
 export const addContact =
@@ -44,3 +41,13 @@ export const deleteContact = (id) => (dispatch) => {
     .then(() => dispatch(deleteContactSuccsess(id)))
     .catch((error) => dispatch(deleteContactError(error)));
 };
+
+export const changeContact =
+  ({ id, ...user }) =>
+  (dispatch) => {
+    dispatch(changeContactRequest());
+    axios
+      .patch(`/contacts/${id}`, user)
+      .then(() => dispatch(changeContactSuccsess({ id, ...user })))
+      .catch((error) => dispatch(changeContactError(error)));
+  };

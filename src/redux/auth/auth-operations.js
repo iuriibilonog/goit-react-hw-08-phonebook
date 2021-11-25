@@ -27,6 +27,7 @@ export const register = createAsyncThunk(
 export const login = createAsyncThunk(
   "auth/login",
   async (credentials, { rejectWithValue }) => {
+    console.log(credentials);
     try {
       const { data } = await loginUser(credentials);
       token.set(data.token);
@@ -80,3 +81,22 @@ export const checkCurrentUser = createAsyncThunk(
     }
   }
 );
+
+// export const change = createAsyncThunk(
+//   "auth/change",
+//   async (credentials, { rejectWithValue }) => {
+//     console.log(credentials);
+//     try {
+//       const { data } = await changeUser(credentials);
+//       console.log(data);
+//       token.set(data.token);
+//       return data;
+//     } catch (error) {
+//       if (error.response.status === 400) {
+//         alert("Wrong email or password!");
+//         return rejectWithValue("Wrong email or password!");
+//       }
+//       return rejectWithValue(error.message);
+//     }
+//   }
+// );
