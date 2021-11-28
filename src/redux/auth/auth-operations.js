@@ -10,6 +10,7 @@ import {
 export const register = createAsyncThunk(
   "auth/register",
   async (credentials, { rejectWithValue }) => {
+    console.log("credentials-->", credentials);
     try {
       const { data } = await addUser(credentials);
       token.set(data.token);

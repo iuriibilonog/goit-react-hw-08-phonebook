@@ -3,6 +3,8 @@ import { useState } from "react";
 import s from "./AuthPage.module.css";
 import { register } from "../../redux/auth/auth-operations";
 import { useDispatch } from "react-redux";
+import { GoogleAuth, FacebookAuth, TwitterAuth } from "../../components/SocialAuth/SocialAuth";
+
 
 const AuthPage = () => {
 
@@ -10,6 +12,21 @@ const AuthPage = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+ 
+  const handleAuthFromSocial = (authNameFromSocial, authEmailFromSocial, authPasswordFromSocial) => {
+  
+    const name = authNameFromSocial;
+    const email = authEmailFromSocial;
+    const password = authPasswordFromSocial;
+    console.log(name);
+    console.log(email);
+    console.log(password);
+    // dispatch(register({ name, email, password }));
+    
+  }
+  
+
 
   const handleOnCange = (e) => {
     const { name, value } = e.target;
@@ -25,6 +42,8 @@ const AuthPage = () => {
         return;
     }
   };
+
+
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
@@ -80,7 +99,13 @@ const AuthPage = () => {
           
         
       </form>
+      <div className={s.socialAuthWrapper}>
+      <GoogleAuth onSubmit={handleAuthFromSocial} />
+      <FacebookAuth onSubmit={handleAuthFromSocial} ></FacebookAuth>
+        {/* <TwitterAuth/> */}
+        </div>
     </>
+    
   );
 };
 
